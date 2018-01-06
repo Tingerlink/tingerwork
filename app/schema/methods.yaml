@@ -1,0 +1,83 @@
+# all methods in API
+
+auth:
+  token:
+    name: auth.token
+    url: ${hostname}/web/auth.token
+    description: Get access token for entry_point
+    parameters:
+      -
+        name: phone
+        description: user phone
+        type: string
+        required: true
+        $ref_format: phone
+      -
+        name: password
+        description: password for auth
+        type: string
+        required: true
+        $ref_format: password
+      -
+        name: device_type
+        description: type api lib
+        type: string
+        required: false
+        $ref_format: empty
+    $ref_response: auth.authorize
+
+registration:
+  checkAvailabilityPhone:
+    name: checkAvailabilityPhone
+    url: ${hostname}/web/registration.checkAvailabilityPhone
+    description: Check whether the phone number is available to register
+    parameters:
+      -
+        name: phone
+        description: phone number for check
+        type: string
+        required: true
+        $ref_format: phone
+    $ref_response: availability
+  sendVerificationCode:
+    name: sendVerificationCode
+    url: ${hostname}/web/registration.sendVerificationCode
+    description: Sends the user a verification code
+    parameters:
+      -
+        name: phone
+        description: phone number for check
+        type: string
+        required: true
+        $ref_format: phone
+    $ref_response: availability
+  signUp:
+    name: signUp
+    url: ${hostname}/web/registration.signUp
+    description: Registration user
+    parameters:
+      -
+        name: phone
+        description: phone number for check
+        type: string
+        required: true
+        $ref_format: phone
+      -
+        name: password
+        description: password for auth
+        type: string
+        required: true
+        $ref_format: password
+      -
+        name: secret_key
+        description: Secret key from phone cheking
+        type: string
+        required: true
+        $ref_format: secret_key
+    $ref_response: availability
+  drop:
+    name: drop
+    url: ${hostname}/web/registration.drop
+    description: drop
+    parameters: []
+    $ref_response: availability

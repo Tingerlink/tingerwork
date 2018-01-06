@@ -1,0 +1,15 @@
+token:
+  name: token
+  type: object
+  properties:
+    token:
+      type: string
+      lenght: 64
+
+
+availability:
+  name: availability
+  type: object
+  properties:
+    availability:
+      type: bool

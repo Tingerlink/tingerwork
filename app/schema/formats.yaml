@@ -1,0 +1,4 @@
+phone: ^[0-9]{10,15}$
+password: ^\S{6,64}$
+secret_key: ^[0-9]{6}$
+empty: ^$
